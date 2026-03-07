@@ -35,6 +35,8 @@ function SubmissionForm() {
       // Prepare the submission data
       const submissionData = {
         user_email: 'anonymous@paryavaran.org', // Default email for anonymous submissions
+        name: data.name,
+        contact_number: data.contact_number,
         district: data.district,
         place: data.place,
         completed_by: data.completed_by,
@@ -316,6 +318,47 @@ function SubmissionForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white rounded-xl shadow-lg p-6 md:p-8 space-y-6 border border-green-200"
         >
+          {/* Name Field */}
+          <div>
+            <label htmlFor="name" className="block text-green-800 font-semibold mb-2">
+              नाम (Name) <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              {...register('name', { required: 'यह फील्ड आवश्यक है' })}
+              className="input-field"
+              placeholder="अपना नाम दर्ज करें"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
+          </div>
+
+          {/* Contact Number Field */}
+          <div>
+            <label htmlFor="contact_number" className="block text-green-800 font-semibold mb-2">
+              संपर्क नंबर (Contact Number) <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="contact_number"
+              type="tel"
+              {...register('contact_number', { 
+                required: 'यह फील्ड आवश्यक है',
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: 'कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें'
+                }
+              })}
+              className="input-field"
+              placeholder="10 अंकों का मोबाइल नंबर"
+              maxLength="10"
+            />
+            {errors.contact_number && (
+              <p className="text-red-500 text-sm mt-1">{errors.contact_number.message}</p>
+            )}
+          </div>
+
           {/* District Field */}
           <div>
             <label htmlFor="district" className="block text-green-800 font-semibold mb-2">
