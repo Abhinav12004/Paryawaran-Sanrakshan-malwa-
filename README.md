@@ -159,6 +159,8 @@ CREATE TABLE public.submissions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   user_email TEXT NOT NULL,
+  name TEXT,
+  contact_number TEXT,
   district TEXT,
   place TEXT,
   completed_by TEXT,
