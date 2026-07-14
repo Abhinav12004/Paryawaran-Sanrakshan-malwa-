@@ -2,8 +2,8 @@ import { createClient } from '@supabase/supabase-js'
 
 // Supabase project configuration
 // Using environment variables for deployment flexibility
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = "https://rumtvjcktqmolbawblpg.supabase.co"
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1bXR2amNrdHFtb2xiYXdibHBnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwMjMyNDMsImV4cCI6MjA5OTU5OTI0M30.olJkp1elZHDmPg6L8JBOiNJOFCRjhhSrASZY2hLAqtI"
 
 // Validate required environment variables
 if (!supabaseUrl || !supabaseAnonKey) {
