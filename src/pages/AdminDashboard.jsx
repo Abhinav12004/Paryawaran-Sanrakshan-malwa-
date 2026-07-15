@@ -137,6 +137,14 @@ function AdminDashboard() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
+                    <p className="text-sm text-green-600 font-semibold">नाम (Name)</p>
+                    <p className="text-green-900">{selectedSubmission.name || 'N/A'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-green-600 font-semibold">संपर्क नंबर (Contact)</p>
+                    <p className="text-green-900">{selectedSubmission.contact_number || 'N/A'}</p>
+                  </div>
+                  <div>
                     <p className="text-sm text-green-600 font-semibold">Email</p>
                     <p className="text-green-900">{selectedSubmission.user_email}</p>
                   </div>
@@ -352,6 +360,12 @@ function AdminDashboard() {
                       Date
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                      Contact
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                       User Email
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
@@ -377,7 +391,7 @@ function AdminDashboard() {
                 <tbody className="bg-white divide-y divide-green-100">
                   {submissions.length === 0 ? (
                     <tr>
-                      <td colSpan="9" className="px-4 py-8 text-center text-green-600">
+                      <td colSpan="11" className="px-4 py-8 text-center text-green-600">
                         <div className="flex flex-col items-center">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -411,6 +425,12 @@ function AdminDashboard() {
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-green-700">
                           {formatDate(submission.created_at)}
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap text-sm text-green-700 font-semibold">
+                          {submission.name || 'N/A'}
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap text-sm text-green-700">
+                          {submission.contact_number || 'N/A'}
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap text-sm text-green-700 font-semibold">
                           {submission.user_email}
